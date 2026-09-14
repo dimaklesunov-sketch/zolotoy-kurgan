@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Золотой Курган — Прайс-лист осень 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: #e8ede6;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(180, 200, 170, 0.2) 0%, transparent 40%),
+                repeating-linear-gradient(45deg, rgba(200, 215, 190, 0.1) 0px, rgba(200, 215, 190, 0.1) 2px, transparent 2px, transparent 6px);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: #ffffff;
+            padding: 45px 55px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border-radius: 4px;
+            border: 1px solid #d0dcc9;
+        }
+        .header {
+            background: #2d5e2a;
+            margin: -45px -55px 30px -55px;
+            padding: 25px 55px 20px 55px;
+            border-bottom: 4px solid #1f421d;
+        }
+        .header h1 {
+            color: #ffffff;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+        }
+        .header h1 small {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #c8e0b0;
+            margin-left: 15px;
+        }
+        .header h1 span { color: #c8e0b0; }
+        .section h2 {
+            font-size: 1.8rem;
+            color: #1f421d;
+            font-weight: 600;
+            border-bottom: 2px solid #b8cfae;
+            padding-bottom: 8px;
+            margin-bottom: 18px;
+        }
+        .section p { font-size: 1.05rem; color: #2a3f26; margin-bottom: 12px; }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .filter-btn {
+            background: #f0f7ed;
+            border: 2px solid #b8cfae;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f421d;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .filter-btn:hover {
+            background: #dce8d6;
+            transform: scale(1.03);
+        }
+        .filter-btn.active {
+            background: #2d5e2a;
+            color: white;
+            border-color: #2d5e2a;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .product-card {
+            background: #f4f8f2;
+            border: 1px solid #d5e2ce;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            border-color: #2d5e2a;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(45, 94, 42, 0.15);
+        }
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 2px solid #d5e2ce;
+        }
+        .product-card .card-body {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card h3 {
+            color: #1f421d;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        .product-card .sub {
+            font-size: 0.9rem;
+            color: #3a5735;
+            margin-bottom: 4px;
+        }
+        .product-card .price {
+            display: block;
+            font-weight: 700;
+            color: #2d5e2a;
+            font-size: 1rem;
+            margin-top: auto;
+        }
+        .product-card .category-tag {
+            display: inline-block;
+            background: #b8cfae;
+            color: #1f421d;
+            font-size: 0.7rem;
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin: 6px auto 0;
+        }
+
+        /* ===== КНОПКИ УПРАВЛЕНИЯ ПРАЙСОМ ===== */
+        .price-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .price-toggle-btn,
+        .price-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid #2d5e2a;
+        }
+        .price-toggle-btn {
+            background: #2d5e2a;
+            color: #fff;
+        }
+        .price-toggle-btn:hover {
+            background: #1f421d;
+            transform: scale(1.03);
+        }
+        .price-download-btn {
+            background: #f0f7ed;
+            color: #1f421d;
+        }
+        .price-download-btn:hover {
+            background: #dce8d6;
+            transform: scale(1.03);
+        }
+        .price-toggle-btn .arrow {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        .price-toggle-btn.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* ===== ПРАЙС-ЛИСТ (таблица с горизонтальной прокруткой) ===== */
+        .price-table-container {
+            position: relative;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .price-table-wrapper {
+            overflow-x: auto;
+            overflow-y: hidden;
+            border-radius: 8px;
+            border: 1px solid #d5e2ce;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #2d5e2a #e8ede6;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.3s ease;
+        }
+        .price-table-wrapper.open {
+            max-height: 5000px;
+            opacity: 1;
+        }
+        .price-table-wrapper::-webkit-scrollbar {
+            height: 10px;
+        }
+        .price-table-wrapper::-webkit-scrollbar-track {
+            background: #e8ede6;
+            border-radius: 0 0 8px 8px;
+        }
+        .price-table-wrapper::-webkit-scrollbar-thumb {
+            background: #2d5e2a;
+            border-radius: 5px;
+        }
+        .price-table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #1f421d;
+        }
+
+        /* Кнопки-стрелки для листания */
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 60px;
+            background: rgba(45, 94, 42, 0.85);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .scroll-arrow:hover {
+            background: #1f421d;
+        }
+        .scroll-arrow.left {
+            left: 4px;
+        }
+        .scroll-arrow.right {
+            right: 4px;
+        }
+        .scroll-arrow.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Подсказка «Листайте вправо» */
+        .scroll-hint {
+            display: none;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #2d5e2a;
+            background: #e8f0e3;
+            padding: 8px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            animation: pulseHint 2s infinite;
+        }
+        @keyframes pulseHint {
+            0%, 100% { background: #e8f0e3; }
+            50% { background: #d4e6cd; }
+        }
+
+        /* Показываем кнопки и подсказку только на мобильных и планшетах */
+        @media (max-width: 900px) {
+            .scroll-arrow { display: flex; }
+            .scroll-hint { display: block; }
+        }
+
+        .full-price-table {
+            width: 100%;
+            min-width: 900px;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            background: #fff;
+        }
+        .full-price-table th {
+            background: #2d5e2a;
+            color: #fff;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border-bottom: 3px solid #1f421d;
+            white-space: nowrap;
+        }
+        .full-price-table td {
+            padding: 8px;
+            border-bottom: 1px solid #e3efe0;
+            color: #2a3f26;
+            vertical-align: middle;
+        }
+        .full-price-table tbody tr:hover td {
+            background: #f8fbf7;
+        }
+        .full-price-table .group-row td {
+            background: #e8f0e3;
+            color: #1f421d;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 10px 8px;
+            border-top: 3px solid #2d5e2a;
+            border-bottom: 2px solid #b8cfae;
+        }
+        .full-price-table td:nth-child(1) { text-align: center; width: 40px; color: #5f7a58; }
+        .full-price-table td:nth-child(3),
+        .full-price-table td:nth-child(4),
+        .full-price-table td:nth-child(5) { white-space: nowrap; }
+        .full-price-table td:nth-child(6),
+        .full-price-table td:nth-child(7) { font-weight: 700; color: #2d5e2a; white-space: nowrap; }
+
+        /* ===== МОДАЛЬНОЕ ОКНО ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 1100px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .modal-header {
+            background: #2d5e2a;
+            color: #fff;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .modal-header h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #fff;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        .modal-close {
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            padding: 0 8px;
+        }
+        .modal-close:hover { color: #ffcccc; }
+        .modal-body {
+            display: flex;
+            gap: 0;
+            overflow: hidden;
+            flex: 1;
+        }
+        .modal-slider {
+            flex: 1.2;
+            background: #1a1a1a;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            overflow: hidden;
+        }
+        .modal-slider img {
+            width: 100%;
+            height: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: transform 0.15s ease-out;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+        .modal-slider img.zoomed {
+            cursor: grab;
+            transition: none;
+        }
+        .modal-slider img.grabbing {
+            cursor: grabbing;
+        }
+        .modal-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(0,0,0,0.4);
+            width: 44px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            transition: 0.2s;
+            z-index: 10;
+        }
+        .modal-arrow:hover { background: rgba(0,0,0,0.7); }
+        .modal-arrow.prev { left: 0; border-radius: 0 8px 8px 0; }
+        .modal-arrow.next { right: 0; border-radius: 8px 0 0 8px; }
+        .modal-counter {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            background: rgba(0,0,0,0.6);
+            padding: 3px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            z-index: 10;
+        }
+        .zoom-controls {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 10;
+        }
+        .zoom-btn {
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .zoom-btn:hover {
+            background: rgba(0,0,0,0.85);
+            transform: scale(1.08);
+        }
+        .zoom-hint {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            color: #fff;
+            background: rgba(0,0,0,0.5);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .modal-prices {
+            flex: 1;
+            padding: 20px 24px;
+            overflow-y: auto;
+        }
+        .modal-prices h3 {
+            color: #1f421d;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #b8cfae;
+            padding-bottom: 6px;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .price-table th {
+            background: #f0f7ed;
+            color: #1f421d;
+            padding: 8px 6px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #b8cfae;
+            font-size: 0.85rem;
+        }
+        .price-table td {
+            padding: 8px 6px;
+            border-bottom: 1px solid #e3efe0;
+            color: #2a3f26;
+        }
+        .price-table tr:hover td {
+            background: #f8fbf7;
+        }
+        .price-table .price-cell {
+            font-weight: 700;
+            color: #2d5e2a;
+        }
+
+        .footer {
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 2px solid #dce8d6;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #4a6145;
+        }
+        .footer a { color: #1f421d; text-decoration: none; font-weight: 500; border-bottom: 1px dotted #b8cfae; }
+        .footer a:hover { border-bottom: 1px solid #1f421d; }
+
+        @media (max-width: 900px) {
+            .modal-body { flex-direction: column; }
+            .modal-slider { min-height: 250px; }
+            .modal-slider img { max-height: 35vh; }
+        }
+        @media (max-width: 700px) {
+            body { padding: 15px 10px; }
+            .container { padding: 20px 18px; }
+            .header { margin: -20px -18px 20px -18px; padding: 18px 18px 14px 18px; }
+            .header h1 { font-size: 1.7rem; }
+            .header h1 small { font-size: 0.9rem; display: block; margin-left: 0; }
+            .section h2 { font-size: 1.4rem; }
+            .product-grid { grid-template-columns: 1fr 1fr; }
+            .modal-content { max-height: 95vh; }
+            .price-table { font-size: 0.8rem; }
+            .price-table th, .price-table td { padding: 6px 4px; }
+            .full-price-table { font-size: 0.8rem; }
+            .full-price-table th, .full-price-table td { padding: 6px 5px; }
+            .full-price-table .group-row td { font-size: 0.85rem; }
+            .price-toggle-btn, .price-download-btn { padding: 8px 16px; font-size: 0.85rem; }
+        }
+        @media (max-width: 450px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .filter-buttons { flex-direction: column; align-items: stretch; }
+            .price-controls { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>🌲 Питомник <span>«Золотой Курган»</span> <small>прайс-лист осень 2026</small></h1>
+    </header>
+
+    <!-- ===== ПРАЙС-ЛИСТ ===== -->
+    <section class="section">
+        <h2>Прайс-лист осень 2026</h2>
+
+        <div class="price-controls">
+            <button class="price-toggle-btn" id="priceToggle">
+                <span class="arrow">▼</span> Показать прайс-лист
+            </button>
+            <button class="price-download-btn" id="priceDownload">
+                📥 Скачать прайс (Excel)
+            </button>
+        </div>
+
+        <div class="scroll-hint">👉 Листайте таблицу вправо и влево</div>
+        <div class="price-table-container">
+            <button class="scroll-arrow left hidden" id="scrollLeft" aria-label="Влево">‹</button>
+            <button class="scroll-arrow right" id="scrollRight" aria-label="Вправо">›</button>
+            <div class="price-table-wrapper" id="priceWrapper">
+                <table class="full-price-table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th>Наименование</th>
+                            <th>Высота, м</th>
+                            <th>Ком, м</th>
+                            <th>Партия, шт.</th>
+                            <th>Опт, ₽</th>
+                            <th>Розница, ₽</th>
+                        </tr>
+                    </thead>
+                    <tbody id="priceTableBody">
+                        <tr class="group-row"><td colspan="7">Деревья хвойных пород</td></tr>
+                        <tr><td>1</td><td>Ель колючая ф. зелёная, голубая</td><td>1,0–1,5</td><td>0,4×0,5</td><td>—</td><td>5 000 ₽/пог.м</td><td>—</td></tr>
+                        <tr><td>2</td><td>Сосна крымская</td><td>1,0–1,5</td><td>0,4×0,5</td><td>—</td><td>4 000 ₽/пог.м</td><td>—</td></tr>
+
+                        <tr class="group-row"><td colspan="7">Деревья лиственных пород</td></tr>
+                        <tr><td>3</td><td>Клен остролистный</td><td>3,0–4,0</td><td>0,5×0,6</td><td>20</td><td>6 000</td><td>6 800</td></tr>
+                        <tr><td>4</td><td>Клен сахаристый</td><td>3,0–4,0</td><td>0,5×0,6</td><td>20</td><td>6 000</td><td>6 800</td></tr>
+                        <tr><td>5</td><td>Липа крупнолистная</td><td>2,5–3,0</td><td>0,5×0,6</td><td>20</td><td>5 000</td><td>5 800</td></tr>
+                        <tr><td>6</td><td>Липа крупнолистная</td><td>3,0–3,5</td><td>0,5×0,6</td><td>20</td><td>6 000</td><td>6 800</td></tr>
+                        <tr><td>7</td><td>Платан</td><td>2,5–3,0</td><td>0,5×0,6</td><td>10</td><td>5 000</td><td>5 800</td></tr>
+                        <tr><td>8</td><td>Платан</td><td>3,0–4,0</td><td>0,6×0,7</td><td>10</td><td>7 000</td><td>7 800</td></tr>
+                        <tr><td>9</td><td>Черемуха Шуберта</td><td>1,8–2,20</td><td>0,4×0,5</td><td>20</td><td>4 000</td><td>4 500</td></tr>
+
+                        <tr class="group-row"><td colspan="7">Кустарники хвойных и вечнозелёных пород</td></tr>
+                        <tr><td>10</td><td>Туя западная колоновидная «Колумна»</td><td>1,0–1,3</td><td>0,3×0,4</td><td>20</td><td>2 300</td><td>—</td></tr>
+                        <tr><td>11</td><td>Туя западная колоновидная «Колумна»</td><td>1,3–1,5</td><td>0,3×0,4</td><td>20</td><td>2 500</td><td>—</td></tr>
+                        <tr><td>12</td><td>Туя западная колоновидная «Колумна»</td><td>1,5–1,8</td><td>0,4×0,5</td><td>20</td><td>3 500</td><td>—</td></tr>
+                        <tr><td>13</td><td>Туя западная колоновидная «Колумна»</td><td>1,8–2,0</td><td>0,4×0,5</td><td>20</td><td>4 000</td><td>—</td></tr>
+                        <tr><td>14</td><td>Туя западная «Смарагд»</td><td>1,3–1,5</td><td>0,3×0,4</td><td>20</td><td>2 500</td><td>3 000</td></tr>
+                        <tr><td>15</td><td>Туя западная «Смарагд»</td><td>1,5–1,8</td><td>0,4×0,5</td><td>20</td><td>3 500</td><td>4 000</td></tr>
+                        <tr><td>16</td><td>Туя западная «Даника»</td><td>0,2×0,3</td><td>0,3×0,4</td><td>—</td><td>—</td><td>1 500</td></tr>
+                        <tr><td>17</td><td>Туя западная «Мириам»</td><td>0,2×0,3</td><td>0,3×0,4</td><td>—</td><td>—</td><td>1 500</td></tr>
+                        <tr><td>18</td><td>Туя западная шаровидная «Вудварди»</td><td>0,5–0,6</td><td>0,3×0,4</td><td>20</td><td>2 000</td><td>2 500</td></tr>
+                        <tr><td>19</td><td>Туя западная шаровидная «Голден Глоб»</td><td>0,6–0,8</td><td>0,3×0,4</td><td>—</td><td>—</td><td>2 500</td></tr>
+                        <tr><td>20</td><td>Туя западная «Еллоу Риббон»</td><td>1,3–1,5</td><td>0,3×0,4</td><td>—</td><td>—</td><td>2 500</td></tr>
+                        <tr><td>21</td><td>Можжевельник обыкновенный колоновидный</td><td>0,8–1,2</td><td>0,3×0,4</td><td>20</td><td>2 500</td><td>3 000</td></tr>
+                        <tr><td>22</td><td>Можжевельник средний «Олд Голд»</td><td>1,2–1,5</td><td>0,3×0,4</td><td>20</td><td>2 500</td><td>3 000</td></tr>
+                        <tr><td>23</td><td>Можжевельник казацкий стелющийся</td><td>0,8–1,2</td><td>0,3×0,4</td><td>20</td><td>2 000</td><td>2 500</td></tr>
+                        <tr><td>24</td><td>Можжевельник казацкий стелющийся</td><td>1,5–1,8</td><td>0,4×0,5</td><td>10</td><td>2 500</td><td>3 000</td></tr>
+                        <tr><td>25</td><td>Можжевельник казацкий стелющийся «Глаука»</td><td>1,5–2,2</td><td>0,4×0,5</td><td>10</td><td>3 000</td><td>3 500</td></tr>
+                        <tr><td>26</td><td>Можжевельник казацкий Баксанский</td><td>0,8–1,2</td><td>0,3×0,4</td><td>20</td><td>2 000</td><td>2 500</td></tr>
+                        <tr><td>27</td><td>Можжевельник казацкий Баксанский</td><td>1,5–1,8</td><td>0,4×0,5</td><td>10</td><td>2 500</td><td>3 000</td></tr>
+                        <tr><td>28</td><td>Можжевельник казацкий Вариегата</td><td>1,3–1,5</td><td>0,4×0,5</td><td>10</td><td>2 500</td><td>3 000</td></tr>
+                        <tr><td>29</td><td>Можжевельник горизонтальный «Блю Чип»</td><td>0,6–0,8</td><td>0,3×0,4</td><td>20</td><td>2 000</td><td>2 200</td></tr>
+                        <tr><td>30</td><td>Можжевельник горизонтальный «Блю Чип»</td><td>0,8–1,2</td><td>0,3×0,4</td><td>10</td><td>2 200</td><td>2 500</td></tr>
+                        <tr><td>31</td><td>Можжевельник стелющийся «Шлягер»</td><td>0,8–1,2</td><td>0,3×0,4</td><td>10</td><td>2 000</td><td>2 500</td></tr>
+                        <tr><td>32</td><td>Можжевельник средний Пфитцериана</td><td>0,7–1,0</td><td>0,3×0,4</td><td>20</td><td>2 000</td><td>2 500</td></tr>
+                        <tr><td>33</td><td>Можжевельник сибирский чашевидный</td><td>1,3–1,5</td><td>0,4×0,5</td><td>10</td><td>2 500</td><td>3 000</td></tr>
+                        <tr><td>34</td><td>Можжевельник китайский «Блю Альпс»</td><td>1,3–1,5</td><td>0,3×0,4</td><td>20</td><td>2 500</td><td>3 000</td></tr>
+
+                        <tr class="group-row"><td colspan="7">Кустарники лиственных пород</td></tr>
+                        <tr><td>35</td><td>Барбарис тунберга «Ред Рокет»</td><td>0,7–1,0</td><td>ОКС</td><td>20</td><td>700</td><td>1 000</td></tr>
+                        <tr><td>36</td><td>Барбарис тунберга «Ред Чиф»</td><td>0,7–1,0</td><td>ОКС</td><td>20</td><td>700</td><td>1 000</td></tr>
+                        <tr><td>37</td><td>Барбарис тунберга пурпурный</td><td>0,5–0,7</td><td>ОКС</td><td>20</td><td>700</td><td>1 000</td></tr>
+                        <tr><td>38</td><td>Бирючина обыкновенная</td><td>0,8–1,2</td><td>ОКС</td><td>20</td><td>300</td><td>400</td></tr>
+                        <tr><td>39</td><td>Бирючина обыкновенная ф. шаровидная</td><td>0,6–0,8</td><td>0,3×0,4</td><td>20</td><td>1 500</td><td>2 000</td></tr>
+                        <tr><td>40</td><td>Кизильник блестящий</td><td>0,8–1,0</td><td>ОКС</td><td>20</td><td>300</td><td>400</td></tr>
+                        <tr><td>41</td><td>Спирея японская «Голден Принцесс»</td><td>0,3–0,4</td><td>ОКС</td><td>20</td><td>350</td><td>500</td></tr>
+                        <tr><td>42</td><td>Спирея японская «Литл Принцесс»</td><td>0,3–0,4</td><td>ОКС</td><td>20</td><td>350</td><td>500</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КАТАЛОГ ===== -->
+    <section class="section">
+        <h2>Каталог растений</h2>
+        <p>Нажмите на карточку, чтобы посмотреть фото и цены по размерам.</p>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">Все</button>
+            <button class="filter-btn" data-category="conifer-tree">🌲 Деревья хвойных пород</button>
+            <button class="filter-btn" data-category="deciduous-tree">🍂 Деревья лиственных пород</button>
+            <button class="filter-btn" data-category="conifer-shrub">🌿 Кустарники хвойных и вечнозеленых пород</button>
+            <button class="filter-btn" data-category="deciduous-shrub">🍃 Кустарники лиственных пород</button>
+        </div>
+        <div class="product-grid" id="productGrid">
+
+            <!-- ===== ДЕРЕВЬЯ ХВОЙНЫХ ПОРОД ===== -->
+            <div class="product-card" data-category="conifer-tree" data-gallery="el_kolyuchaya">
+                <img src="images/el_kolyuchaya/el_kolyuchaya_1.jpg" alt="Ель колючая" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Ель+колючая'" />
+                <div class="card-body">
+                    <h3>Ель колючая ф. зелёная, голубая</h3>
+                    <div class="sub">Высота: 1,0–1,5 м</div>
+                    <span class="price">Опт: 5 000 ₽/пог.м</span>
+                    <span class="category-tag">Деревья хвойных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-tree" data-gallery="sosna_krymskaya">
+                <img src="images/sosna_krymskaya/sosna_krymskaya_1.jpg" alt="Сосна крымская" onerror="this.src='https://via.placeholder.com/300x180/4c8b3f/white?text=Сосна+крымская'" />
+                <div class="card-body">
+                    <h3>Сосна крымская</h3>
+                    <div class="sub">Высота: 1,0–1,5 м</div>
+                    <span class="price">Опт: 4 000 ₽/пог.м</span>
+                    <span class="category-tag">Деревья хвойных пород</span>
+                </div>
+            </div>
+
+            <!-- ===== ДЕРЕВЬЯ ЛИСТВЕННЫХ ПОРОД ===== -->
+            <div class="product-card" data-category="deciduous-tree" data-gallery="klen_ostrolistny">
+                <img src="images/klen_ostrolistny/klen_ostrolistny_1.jpg" alt="Клен остролистный" onerror="this.src='https://via.placeholder.com/300x180/d4a843/white?text=Клен+остролистный'" />
+                <div class="card-body">
+                    <h3>Клен остролистный</h3>
+                    <div class="sub">Высота: 3,0–4,0 м</div>
+                    <span class="price">Опт: 6 000 ₽ | Розница: 6 800 ₽</span>
+                    <span class="category-tag">Деревья лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-tree" data-gallery="klen_sakharisty">
+                <img src="images/klen_sakharisty/klen_sakharisty_1.jpg" alt="Клен сахаристый" onerror="this.src='https://via.placeholder.com/300x180/b8860b/white?text=Клен+сахаристый'" />
+                <div class="card-body">
+                    <h3>Клен сахаристый</h3>
+                    <div class="sub">Высота: 3,0–4,0 м</div>
+                    <span class="price">Опт: 6 000 ₽ | Розница: 6 800 ₽</span>
+                    <span class="category-tag">Деревья лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-tree" data-gallery="lipa_krapnolistnaya">
+                <img src="images/lipa_krapnolistnaya/lipa_krapnolistnaya_1.jpg" alt="Липа крупнолистная" onerror="this.src='https://via.placeholder.com/300x180/6b8c5c/white?text=Липа'" />
+                <div class="card-body">
+                    <h3>Липа крупнолистная</h3>
+                    <div class="sub">Высота: 2,5–3,5 м</div>
+                    <span class="price">Цена: см. внутри</span>
+                    <span class="category-tag">Деревья лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-tree" data-gallery="platan">
+                <img src="images/platan/platan_1.jpg" alt="Платан" onerror="this.src='https://via.placeholder.com/300x180/8b7d6b/white?text=Платан'" />
+                <div class="card-body">
+                    <h3>Платан</h3>
+                    <div class="sub">Высота: 2,5–4,0 м</div>
+                    <span class="price">Цена: см. внутри</span>
+                    <span class="category-tag">Деревья лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-tree" data-gallery="cheremukha_shuberta">
+                <img src="images/cheremukha_shuberta/cheremukha_shuberta_1.jpg" alt="Черемуха Шуберта" onerror="this.src='https://via.placeholder.com/300x180/9b59b6/white?text=Черемуха+Шуберта'" />
+                <div class="card-body">
+                    <h3>Черемуха Шуберта</h3>
+                    <div class="sub">Высота: 1,8–2,20 м</div>
+                    <span class="price">Опт: 4 000 ₽ | Розница: 4 500 ₽</span>
+                    <span class="category-tag">Деревья лиственных пород</span>
+                </div>
+            </div>
+
+            <!-- ===== КУСТАРНИКИ ХВОЙНЫХ И ВЕЧНОЗЕЛЁНЫХ ПОРОД ===== -->
+            <div class="product-card" data-category="conifer-shrub" data-gallery="tuya_kolumna">
+                <img src="images/tuya_kolumna/tuya_kolumna_1.jpg" alt="Туя Колумна" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Туя+Колумна'" />
+                <div class="card-body">
+                    <h3>Туя западная колоновидная «Колумна»</h3>
+                    <div class="sub">Высота: 1,0–2,0 м</div>
+                    <span class="price">Цена: см. внутри</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="tuya_smaragd">
+                <img src="images/tuya_smaragd/tuya_smaragd_1.jpg" alt="Туя Смарагд" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Туя+Смарагд'" />
+                <div class="card-body">
+                    <h3>Туя западная «Смарагд»</h3>
+                    <div class="sub">Высота: 1,3–1,8 м</div>
+                    <span class="price">Цена: см. внутри</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="tuya_danika">
+                <img src="images/tuya_danika/tuya_danika_1.jpg" alt="Туя Даника" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Туя+Даника'" />
+                <div class="card-body">
+                    <h3>Туя западная «Даника»</h3>
+                    <div class="sub">Высота: 0,2×0,3 м</div>
+                    <span class="price">Розница: 1 500 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="tuya_miriam">
+                <img src="images/tuya_miriam/tuya_miriam_1.jpg" alt="Туя Мириам" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Туя+Мириам'" />
+                <div class="card-body">
+                    <h3>Туя западная «Мириам»</h3>
+                    <div class="sub">Высота: 0,2×0,3 м</div>
+                    <span class="price">Розница: 1 500 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="tuya_vudvardi">
+                <img src="images/tuya_vudvardi/tuya_vudvardi_1.jpg" alt="Туя Вудварди" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Туя+Вудварди'" />
+                <div class="card-body">
+                    <h3>Туя западная шаровидная «Вудварди»</h3>
+                    <div class="sub">Высота: 0,5–0,6 м</div>
+                    <span class="price">Опт: 2 000 ₽ | Розница: 2 500 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="tuya_golden_glob">
+                <img src="images/tuya_golden_glob/tuya_golden_glob_1.jpg" alt="Туя Голден Глоб" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Туя+Голден+Глоб'" />
+                <div class="card-body">
+                    <h3>Туя западная шаровидная «Голден Глоб»</h3>
+                    <div class="sub">Высота: 0,6–0,8 м</div>
+                    <span class="price">Розница: 2 500 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="tuya_yellow_ribbon">
+                <img src="images/tuya_yellow_ribbon/tuya_yellow_ribbon_1.jpg" alt="Туя Еллоу Риббон" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Туя+Еллоу+Риббон'" />
+                <div class="card-body">
+                    <h3>Туя западная «Еллоу Риббон»</h3>
+                    <div class="sub">Высота: 1,3–1,5 м</div>
+                    <span class="price">Розница: 2 500 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_obyknovenny">
+                <img src="images/mozh_obyknovenny/mozh_obyknovenny_1.jpg" alt="Можжевельник колоновидный" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+колоновидный'" />
+                <div class="card-body">
+                    <h3>Можжевельник обыкновенный колоновидный</h3>
+                    <div class="sub">Высота: 0,8–1,2 м</div>
+                    <span class="price">Опт: 2 500 ₽ | Розница: 3 000 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_old_gold">
+                <img src="images/mozh_old_gold/mozh_old_gold_1.jpg" alt="Можжевельник Олд Голд" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+Олд+Голд'" />
+                <div class="card-body">
+                    <h3>Можжевельник средний «Олд Голд»</h3>
+                    <div class="sub">Диаметр: 1,2–1,5 м</div>
+                    <span class="price">Опт: 2 500 ₽ | Розница: 3 000 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_kazatsky_stel">
+                <img src="images/mozh_kazatsky_stel/mozh_kazatsky_stel_1.jpg" alt="Можжевельник казацкий стелющийся" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+стелющийся'" />
+                <div class="card-body">
+                    <h3>Можжевельник казацкий стелющийся</h3>
+                    <div class="sub">Высота: 0,8–1,8 м</div>
+                    <span class="price">Цена: см. внутри</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_kazatsky_glauca">
+                <img src="images/mozh_kazatsky_glauca/mozh_kazatsky_glauca_1.jpg" alt="Можжевельник Глаука" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+Глаука'" />
+                <div class="card-body">
+                    <h3>Можжевельник казацкий стелющийся «Глаука»</h3>
+                    <div class="sub">Высота: 1,5–2,2 м</div>
+                    <span class="price">Опт: 3 000 ₽ | Розница: 3 500 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_kazatsky_baksansky">
+                <img src="images/mozh_kazatsky_baksansky/mozh_kazatsky_baksansky_1.jpg" alt="Можжевельник Баксанский" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+Баксанский'" />
+                <div class="card-body">
+                    <h3>Можжевельник казацкий Баксанский</h3>
+                    <div class="sub">Высота: 0,8–1,8 м</div>
+                    <span class="price">Цена: см. внутри</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_kazatsky_variegata">
+                <img src="images/mozh_kazatsky_variegata/mozh_kazatsky_variegata_1.jpg" alt="Можжевельник Вариегата" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+Вариегата'" />
+                <div class="card-body">
+                    <h3>Можжевельник казацкий Вариегата</h3>
+                    <div class="sub">Высота: 1,3–1,5 м</div>
+                    <span class="price">Опт: 2 500 ₽ | Розница: 3 000 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_blue_chip">
+                <img src="images/mozh_blue_chip/mozh_blue_chip_1.jpg" alt="Можжевельник Блю Чип" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+Блю+Чип'" />
+                <div class="card-body">
+                    <h3>Можжевельник горизонтальный «Блю Чип»</h3>
+                    <div class="sub">Высота: 0,6–1,2 м</div>
+                    <span class="price">Цена: см. внутри</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_schlyager">
+                <img src="images/mozh_schlyager/mozh_schlyager_1.jpg" alt="Можжевельник Шлягер" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+Шлягер'" />
+                <div class="card-body">
+                    <h3>Можжевельник стелющийся «Шлягер»</h3>
+                    <div class="sub">Высота: 0,8–1,2 м</div>
+                    <span class="price">Опт: 2 000 ₽ | Розница: 2 500 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_pfitzeriana">
+                <img src="images/mozh_pfitzeriana/mozh_pfitzeriana_1.jpg" alt="Можжевельник Пфитцериана" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+Пфитцериана'" />
+                <div class="card-body">
+                    <h3>Можжевельник средний Пфитцериана</h3>
+                    <div class="sub">Высота: 0,7–1,0 м</div>
+                    <span class="price">Опт: 2 000 ₽ | Розница: 2 500 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_sibirsky">
+                <img src="images/mozh_sibirsky/mozh_sibirsky_1.jpg" alt="Можжевельник сибирский" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+сибирский'" />
+                <div class="card-body">
+                    <h3>Можжевельник сибирский чашевидный</h3>
+                    <div class="sub">Высота: 1,3–1,5 м</div>
+                    <span class="price">Опт: 2 500 ₽ | Розница: 3 000 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="conifer-shrub" data-gallery="mozh_blue_alps">
+                <img src="images/mozh_blue_alps/mozh_blue_alps_1.jpg" alt="Можжевельник Блю Альпс" onerror="this.src='https://via.placeholder.com/300x180/2d5e2a/white?text=Можж.+Блю+Альпс'" />
+                <div class="card-body">
+                    <h3>Можжевельник китайский «Блю Альпс»</h3>
+                    <div class="sub">Высота: 1,3–1,5 м</div>
+                    <span class="price">Опт: 2 500 ₽ | Розница: 3 000 ₽</span>
+                    <span class="category-tag">Кустарники хвойных и вечнозелёных пород</span>
+                </div>
+            </div>
+
+            <!-- ===== КУСТАРНИКИ ЛИСТВЕННЫХ ПОРОД ===== -->
+            <div class="product-card" data-category="deciduous-shrub" data-gallery="barbaris_red_rocket">
+                <img src="images/barbaris_red_rocket/barbaris_red_rocket_1.jpg" alt="Барбарис Ред Рокет" onerror="this.src='https://via.placeholder.com/300x180/8b0000/white?text=Барбарис+Ред+Рокет'" />
+                <div class="card-body">
+                    <h3>Барбарис тунберга «Ред Рокет»</h3>
+                    <div class="sub">Высота: 0,7–1,0 м</div>
+                    <span class="price">Опт: 700 ₽ | Розница: 1 000 ₽</span>
+                    <span class="category-tag">Кустарники лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-shrub" data-gallery="barbaris_red_chief">
+                <img src="images/barbaris_red_chief/barbaris_red_chief_1.jpg" alt="Барбарис Ред Чиф" onerror="this.src='https://via.placeholder.com/300x180/8b0000/white?text=Барбарис+Ред+Чиф'" />
+                <div class="card-body">
+                    <h3>Барбарис тунберга «Ред Чиф»</h3>
+                    <div class="sub">Высота: 0,7–1,0 м</div>
+                    <span class="price">Опт: 700 ₽ | Розница: 1 000 ₽</span>
+                    <span class="category-tag">Кустарники лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-shrub" data-gallery="barbaris_purpurny">
+                <img src="images/barbaris_purpurny/barbaris_purpurny_1.jpg" alt="Барбарис пурпурный" onerror="this.src='https://via.placeholder.com/300x180/8b0000/white?text=Барбарис+пурпурный'" />
+                <div class="card-body">
+                    <h3>Барбарис тунберга пурпурный</h3>
+                    <div class="sub">Высота: 0,5–0,7 м</div>
+                    <span class="price">Опт: 700 ₽ | Розница: 1 000 ₽</span>
+                    <span class="category-tag">Кустарники лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-shrub" data-gallery="biryuchina">
+                <img src="images/biryuchina/biryuchina_1.jpg" alt="Бирючина" onerror="this.src='https://via.placeholder.com/300x180/556b2f/white?text=Бирючина'" />
+                <div class="card-body">
+                    <h3>Бирючина обыкновенная</h3>
+                    <div class="sub">Высота: 0,8–1,2 м</div>
+                    <span class="price">Опт: 300 ₽ | Розница: 400 ₽</span>
+                    <span class="category-tag">Кустарники лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-shrub" data-gallery="biryuchina_shar">
+                <img src="images/biryuchina_shar/biryuchina_shar_1.jpg" alt="Бирючина шаровидная" onerror="this.src='https://via.placeholder.com/300x180/556b2f/white?text=Бирючина+шаровидная'" />
+                <div class="card-body">
+                    <h3>Бирючина обыкновенная ф. шаровидная</h3>
+                    <div class="sub">Высота: 0,6–0,8 м</div>
+                    <span class="price">Опт: 1 500 ₽ | Розница: 2 000 ₽</span>
+                    <span class="category-tag">Кустарники лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-shrub" data-gallery="kizilnik">
+                <img src="images/kizilnik/kizilnik_1.jpg" alt="Кизильник" onerror="this.src='https://via.placeholder.com/300x180/2e8b57/white?text=Кизильник'" />
+                <div class="card-body">
+                    <h3>Кизильник блестящий</h3>
+                    <div class="sub">Высота: 0,8–1,0 м</div>
+                    <span class="price">Опт: 300 ₽ | Розница: 400 ₽</span>
+                    <span class="category-tag">Кустарники лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-shrub" data-gallery="spirea_golden">
+                <img src="images/spirea_golden/spirea_golden_1.jpg" alt="Спирея Голден Принцесс" onerror="this.src='https://via.placeholder.com/300x180/daa520/white?text=Спирея+Голден+Принцесс'" />
+                <div class="card-body">
+                    <h3>Спирея японская «Голден Принцесс»</h3>
+                    <div class="sub">Высота: 0,3–0,4 м</div>
+                    <span class="price">Опт: 350 ₽ | Розница: 500 ₽</span>
+                    <span class="category-tag">Кустарники лиственных пород</span>
+                </div>
+            </div>
+            <div class="product-card" data-category="deciduous-shrub" data-gallery="spirea_little">
+                <img src="images/spirea_little/spirea_little_1.jpg" alt="Спирея Литл Принцесс" onerror="this.src='https://via.placeholder.com/300x180/daa520/white?text=Спирея+Литл+Принцесс'" />
+                <div class="card-body">
+                    <h3>Спирея японская «Литл Принцесс»</h3>
+                    <div class="sub">Высота: 0,3–0,4 м</div>
+                    <span class="price">Опт: 350 ₽ | Розница: 500 ₽</span>
+                    <span class="category-tag">Кустарники лиственных пород</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>О питомнике</h2>
+        <div style="background: #f4f9f1; padding: 22px 28px; border-left: 5px solid #2d5e2a;">
+            <p><strong>Питомник «Золотой Курган»</strong></p>
+            <p>Предлагаем качественный посадочный материал собственного производства. В питомнике представлен широкий ассортимент хвойных и лиственных деревьев и кустарников.</p>
+            <p style="margin-top: 10px; font-size: 0.95rem; color: #3a5735;">
+                📍 Ставропольский край, Предгорный район, х. Тамбукан
+            </p>
+            <p style="font-size: 0.95rem; color: #3a5735;">
+                👤 Клещунов Анатолий Владимирович
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 Питомник «Золотой Курган»</p>
+        <p>
+            📧 <a href="mailto:zolotoykurgan26@gmail.com">zolotoykurgan26@gmail.com</a> &nbsp;|&nbsp; 
+            📞 <a href="tel:+79614489066">8-961-448-90-66</a>
+        </p>
+        <p style="margin-top: 6px; font-size: 0.85rem; color: #5f7a58;">
+            📍 Ставропольский край, Предгорный район, х. Тамбукан
+        </p>
+    </footer>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Название растения</h2>
+            <button class="modal-close" id="modalClose">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-slider" id="modalSlider">
+                <div class="zoom-hint">🔍 Колесо мыши или клик — зум</div>
+                <button class="modal-arrow prev" id="modalPrev">‹</button>
+                <img id="modalImage" src="" alt="Фото" />
+                <button class="modal-arrow next" id="modalNext">›</button>
+                <div class="zoom-controls">
+                    <button class="zoom-btn" id="zoomIn" title="Приблизить">+</button>
+                    <button class="zoom-btn" id="zoomOut" title="Отдалить">−</button>
+                    <button class="zoom-btn" id="zoomReset" title="Сбросить">⟲</button>
+                </div>
+                <div class="modal-counter" id="modalCounter">1 / 5</div>
+            </div>
+            <div class="modal-prices">
+                <h3>Размеры и цены</h3>
+                <table class="price-table" id="priceTable">
+                    <thead>
+                        <tr>
+                            <th>Размер</th>
+                            <th>Ком</th>
+                            <th>Партия</th>
+                            <th>Опт</th>
+                            <th>Розница</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ===== 1. ФИЛЬТР =====
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.product-card');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            buttons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const category = this.dataset.category;
+            cards.forEach(card => {
+                card.style.display = (category === 'all' || card.dataset.category === category) ? 'flex' : 'none';
+            });
+        });
+    });
+
+    // ===== 2. РАСКРЫТЬ / СКРЫТЬ ПРАЙС + ЛИСТАНИЕ =====
+    const priceToggle = document.getElementById('priceToggle');
+    const priceWrapper = document.getElementById('priceWrapper');
+    const scrollLeftBtn = document.getElementById('scrollLeft');
+    const scrollRightBtn = document.getElementById('scrollRight');
+
+    function updateScrollButtons() {
+        const scrollLeft = priceWrapper.scrollLeft;
+        const maxScroll = priceWrapper.scrollWidth - priceWrapper.clientWidth;
+        
+        if (scrollLeft > 5) {
+            scrollLeftBtn.classList.remove('hidden');
+        } else {
+            scrollLeftBtn.classList.add('hidden');
+        }
+        
+        if (scrollLeft < maxScroll - 5) {
+            scrollRightBtn.classList.remove('hidden');
+        } else {
+            scrollRightBtn.classList.add('hidden');
+        }
+    }
+
+    priceToggle.addEventListener('click', function() {
+        const isOpen = priceWrapper.classList.toggle('open');
+        this.classList.toggle('open', isOpen);
+        this.innerHTML = isOpen
+            ? '<span class="arrow">▼</span> Скрыть прайс-лист'
+            : '<span class="arrow">▼</span> Показать прайс-лист';
+        
+        setTimeout(updateScrollButtons, 500);
+    });
+
+    // Листание по кнопкам
+    const SCROLL_STEP = 300;
+    scrollLeftBtn.addEventListener('click', () => {
+        priceWrapper.scrollBy({ left: -SCROLL_STEP, behavior: 'smooth' });
+    });
+    scrollRightBtn.addEventListener('click', () => {
+        priceWrapper.scrollBy({ left: SCROLL_STEP, behavior: 'smooth' });
+    });
+
+    // Обновление кнопок при прокрутке и изменении размера окна
+    priceWrapper.addEventListener('scroll', updateScrollButtons);
+    window.addEventListener('resize', updateScrollButtons);
+
+    // ===== 3. СКАЧАТЬ ПРАЙС В EXCEL (CSV) =====
+    document.getElementById('priceDownload').addEventListener('click', function() {
+        const table = document.querySelector('.full-price-table');
+        let csv = '';
+
+        csv += 'ПИТОМНИК "ЗОЛОТОЙ КУРГАН" - ПРАЙС-ЛИСТ ОСЕНЬ 2026\n\n';
+
+        const rows = table.querySelectorAll('tr');
+        rows.forEach(row => {
+            const cells = row.querySelectorAll('th, td');
+            const rowData = [];
+            cells.forEach(cell => {
+                let text = cell.innerText.replace(/\s+/g, ' ').trim();
+                text = text.replace(/"/g, '""');
+                rowData.push('"' + text + '"');
+            });
+            csv += rowData.join(';') + '\n';
+        });
+
+        const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Золотой_Курган_прайс_осень_2026.csv';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    });
+
+    // ===== 4. ДАННЫЕ: ФОТО + ТАБЛИЦА ЦЕН =====
+    const products = {
+        'el_kolyuchaya': {
+            title: 'Ель колючая ф. зелёная, голубая',
+            photos: ['images/el_kolyuchaya/el_kolyuchaya_1.jpg','images/el_kolyuchaya/el_kolyuchaya_2.jpg','images/el_kolyuchaya/el_kolyuchaya_3.jpg','images/el_kolyuchaya/el_kolyuchaya_4.jpg','images/el_kolyuchaya/el_kolyuchaya_5.jpg'],
+            prices: [{ size: '1,0–1,5 м', kom: '0,4×0,5', partiya: '—', opt: '5 000 ₽/пог.м', rozn: '—' }]
+        },
+        'sosna_krymskaya': {
+            title: 'Сосна крымская',
+            photos: ['images/sosna_krymskaya/sosna_krymskaya_1.jpg','images/sosna_krymskaya/sosna_krymskaya_2.jpg','images/sosna_krymskaya/sosna_krymskaya_3.jpg','images/sosna_krymskaya/sosna_krymskaya_4.jpg','images/sosna_krymskaya/sosna_krymskaya_5.jpg'],
+            prices: [{ size: '1,0–1,5 м', kom: '0,4×0,5', partiya: '—', opt: '4 000 ₽/пог.м', rozn: '—' }]
+        },
+        'klen_ostrolistny': {
+            title: 'Клен остролистный',
+            photos: ['images/klen_ostrolistny/klen_ostrolistny_1.jpg','images/klen_ostrolistny/klen_ostrolistny_2.jpg','images/klen_ostrolistny/klen_ostrolistny_3.jpg','images/klen_ostrolistny/klen_ostrolistny_4.jpg','images/klen_ostrolistny/klen_ostrolistny_5.jpg'],
+            prices: [{ size: '3,0–4,0 м', kom: '0,5×0,6', partiya: '20', opt: '6 000 ₽', rozn: '6 800 ₽' }]
+        },
+        'klen_sakharisty': {
+            title: 'Клен сахаристый',
+            photos: ['images/klen_sakharisty/klen_sakharisty_1.jpg','images/klen_sakharisty/klen_sakharisty_2.jpg','images/klen_sakharisty/klen_sakharisty_3.jpg','images/klen_sakharisty/klen_sakharisty_4.jpg','images/klen_sakharisty/klen_sakharisty_5.jpg'],
+            prices: [{ size: '3,0–4,0 м', kom: '0,5×0,6', partiya: '20', opt: '6 000 ₽', rozn: '6 800 ₽' }]
+        },
+        'lipa_krapnolistnaya': {
+            title: 'Липа крупнолистная',
+            photos: ['images/lipa_krapnolistnaya/lipa_krapnolistnaya_1.jpg','images/lipa_krapnolistnaya/lipa_krapnolistnaya_2.jpg','images/lipa_krapnolistnaya/lipa_krapnolistnaya_3.jpg','images/lipa_krapnolistnaya/lipa_krapnolistnaya_4.jpg','images/lipa_krapnolistnaya/lipa_krapnolistnaya_5.jpg'],
+            prices: [
+                { size: '2,5–3,0 м', kom: '0,5×0,6', partiya: '20', opt: '5 000 ₽', rozn: '5 800 ₽' },
+                { size: '3,0–3,5 м', kom: '0,5×0,6', partiya: '20', opt: '6 000 ₽', rozn: '6 800 ₽' }
+            ]
+        },
+        'platan': {
+            title: 'Платан',
+            photos: ['images/platan/platan_1.jpg','images/platan/platan_2.jpg','images/platan/platan_3.jpg','images/platan/platan_4.jpg','images/platan/platan_5.jpg'],
+            prices: [
+                { size: '2,5–3,0 м', kom: '0,5×0,6', partiya: '10', opt: '5 000 ₽', rozn: '5 800 ₽' },
+                { size: '3,0–4,0 м', kom: '0,6×0,7', partiya: '10', opt: '7 000 ₽', rozn: '7 800 ₽' }
+            ]
+        },
+        'cheremukha_shuberta': {
+            title: 'Черемуха Шуберта',
+            photos: ['images/cheremukha_shuberta/cheremukha_shuberta_1.jpg','images/cheremukha_shuberta/cheremukha_shuberta_2.jpg','images/cheremukha_shuberta/cheremukha_shuberta_3.jpg','images/cheremukha_shuberta/cheremukha_shuberta_4.jpg','images/cheremukha_shuberta/cheremukha_shuberta_5.jpg'],
+            prices: [{ size: '1,8–2,20 м', kom: '0,4×0,5', partiya: '20', opt: '4 000 ₽', rozn: '4 500 ₽' }]
+        },
+        'tuya_kolumna': {
+            title: 'Туя западная колоновидная «Колумна»',
+            photos: ['images/tuya_kolumna/tuya_kolumna_1.jpg','images/tuya_kolumna/tuya_kolumna_2.jpg','images/tuya_kolumna/tuya_kolumna_3.jpg','images/tuya_kolumna/tuya_kolumna_4.jpg','images/tuya_kolumna/tuya_kolumna_5.jpg'],
+            prices: [
+                { size: '1,0–1,3 м', kom: '0,3×0,4', partiya: '20', opt: '2 300 ₽', rozn: '—' },
+                { size: '1,3–1,5 м', kom: '0,3×0,4', partiya: '20', opt: '2 500 ₽', rozn: '—' },
+                { size: '1,5–1,8 м', kom: '0,4×0,5', partiya: '20', opt: '3 500 ₽', rozn: '—' },
+                { size: '1,8–2,0 м', kom: '0,4×0,5', partiya: '20', opt: '4 000 ₽', rozn: '—' }
+            ]
+        },
+        'tuya_smaragd': {
+            title: 'Туя западная «Смарагд»',
+            photos: ['images/tuya_smaragd/tuya_smaragd_1.jpg','images/tuya_smaragd/tuya_smaragd_2.jpg','images/tuya_smaragd/tuya_smaragd_3.jpg','images/tuya_smaragd/tuya_smaragd_4.jpg','images/tuya_smaragd/tuya_smaragd_5.jpg'],
+            prices: [
+                { size: '1,3–1,5 м', kom: '0,3×0,4', partiya: '20', opt: '2 500 ₽', rozn: '3 000 ₽' },
+                { size: '1,5–1,8 м', kom: '0,4×0,5', partiya: '20', opt: '3 500 ₽', rozn: '4 000 ₽' }
+            ]
+        },
+        'tuya_danika': {
+            title: 'Туя западная «Даника»',
+            photos: ['images/tuya_danika/tuya_danika_1.jpg','images/tuya_danika/tuya_danika_2.jpg','images/tuya_danika/tuya_danika_3.jpg','images/tuya_danika/tuya_danika_4.jpg','images/tuya_danika/tuya_danika_5.jpg'],
+            prices: [{ size: '0,2×0,3 м', kom: '0,3×0,4', partiya: '—', opt: '—', rozn: '1 500 ₽' }]
+        },
+        'tuya_miriam': {
+            title: 'Туя западная «Мириам»',
+            photos: ['images/tuya_miriam/tuya_miriam_1.jpg','images/tuya_miriam/tuya_miriam_2.jpg','images/tuya_miriam/tuya_miriam_3.jpg','images/tuya_miriam/tuya_miriam_4.jpg','images/tuya_miriam/tuya_miriam_5.jpg'],
+            prices: [{ size: '0,2×0,3 м', kom: '0,3×0,4', partiya: '—', opt: '—', rozn: '1 500 ₽' }]
+        },
+        'tuya_vudvardi': {
+            title: 'Туя западная шаровидная «Вудварди»',
+            photos: ['images/tuya_vudvardi/tuya_vudvardi_1.jpg','images/tuya_vudvardi/tuya_vudvardi_2.jpg','images/tuya_vudvardi/tuya_vudvardi_3.jpg','images/tuya_vudvardi/tuya_vudvardi_4.jpg','images/tuya_vudvardi/tuya_vudvardi_5.jpg'],
+            prices: [{ size: '0,5–0,6 м', kom: '0,3×0,4', partiya: '20', opt: '2 000 ₽', rozn: '2 500 ₽' }]
+        },
+        'tuya_golden_glob': {
+            title: 'Туя западная шаровидная «Голден Глоб»',
+            photos: ['images/tuya_golden_glob/tuya_golden_glob_1.jpg','images/tuya_golden_glob/tuya_golden_glob_2.jpg','images/tuya_golden_glob/tuya_golden_glob_3.jpg','images/tuya_golden_glob/tuya_golden_glob_4.jpg','images/tuya_golden_glob/tuya_golden_glob_5.jpg'],
+            prices: [{ size: '0,6–0,8 м', kom: '0,3×0,4', partiya: '—', opt: '—', rozn: '2 500 ₽' }]
+        },
+        'tuya_yellow_ribbon': {
+            title: 'Туя западная «Еллоу Риббон»',
+            photos: ['images/tuya_yellow_ribbon/tuya_yellow_ribbon_1.jpg','images/tuya_yellow_ribbon/tuya_yellow_ribbon_2.jpg','images/tuya_yellow_ribbon/tuya_yellow_ribbon_3.jpg','images/tuya_yellow_ribbon/tuya_yellow_ribbon_4.jpg','images/tuya_yellow_ribbon/tuya_yellow_ribbon_5.jpg'],
+            prices: [{ size: '1,3–1,5 м', kom: '0,3×0,4', partiya: '—', opt: '—', rozn: '2 500 ₽' }]
+        },
+        'mozh_obyknovenny': {
+            title: 'Можжевельник обыкновенный колоновидный',
+            photos: ['images/mozh_obyknovenny/mozh_obyknovenny_1.jpg','images/mozh_obyknovenny/mozh_obyknovenny_2.jpg','images/mozh_obyknovenny/mozh_obyknovenny_3.jpg','images/mozh_obyknovenny/mozh_obyknovenny_4.jpg','images/mozh_obyknovenny/mozh_obyknovenny_5.jpg'],
+            prices: [{ size: '0,8–1,2 м', kom: '0,3×0,4', partiya: '20', opt: '2 500 ₽', rozn: '3 000 ₽' }]
+        },
+        'mozh_old_gold': {
+            title: 'Можжевельник средний «Олд Голд»',
+            photos: ['images/mozh_old_gold/mozh_old_gold_1.jpg','images/mozh_old_gold/mozh_old_gold_2.jpg','images/mozh_old_gold/mozh_old_gold_3.jpg','images/mozh_old_gold/mozh_old_gold_4.jpg','images/mozh_old_gold/mozh_old_gold_5.jpg'],
+            prices: [{ size: '1,2–1,5 м', kom: '0,3×0,4', partiya: '20', opt: '2 500 ₽', rozn: '3 000 ₽' }]
+        },
+        'mozh_kazatsky_stel': {
+            title: 'Можжевельник казацкий стелющийся',
+            photos: ['images/mozh_kazatsky_stel/mozh_kazatsky_stel_1.jpg','images/mozh_kazatsky_stel/mozh_kazatsky_stel_2.jpg','images/mozh_kazatsky_stel/mozh_kazatsky_stel_3.jpg','images/mozh_kazatsky_stel/mozh_kazatsky_stel_4.jpg','images/mozh_kazatsky_stel/mozh_kazatsky_stel_5.jpg'],
+            prices: [
+                { size: '0,8–1,2 м', kom: '0,3×0,4', partiya: '20', opt: '2 000 ₽', rozn: '2 500 ₽' },
+                { size: '1,5–1,8 м', kom: '0,4×0,5', partiya: '10', opt: '2 500 ₽', rozn: '3 000 ₽' }
+            ]
+        },
+        'mozh_kazatsky_glauca': {
+            title: 'Можжевельник казацкий стелющийся «Глаука»',
+            photos: ['images/mozh_kazatsky_glauca/mozh_kazatsky_glauca_1.jpg','images/mozh_kazatsky_glauca/mozh_kazatsky_glauca_2.jpg','images/mozh_kazatsky_glauca/mozh_kazatsky_glauca_3.jpg','images/mozh_kazatsky_glauca/mozh_kazatsky_glauca_4.jpg','images/mozh_kazatsky_glauca/mozh_kazatsky_glauca_5.jpg'],
+            prices: [{ size: '1,5–2,2 м', kom: '0,4×0,5', partiya: '10', opt: '3 000 ₽', rozn: '3 500 ₽' }]
+        },
+        'mozh_kazatsky_baksansky': {
+            title: 'Можжевельник казацкий Баксанский',
+            photos: ['images/mozh_kazatsky_baksansky/mozh_kazatsky_baksansky_1.jpg','images/mozh_kazatsky_baksansky/mozh_kazatsky_baksansky_2.jpg','images/mozh_kazatsky_baksansky/mozh_kazatsky_baksansky_3.jpg','images/mozh_kazatsky_baksansky/mozh_kazatsky_baksansky_4.jpg','images/mozh_kazatsky_baksansky/mozh_kazatsky_baksansky_5.jpg'],
+            prices: [
+                { size: '0,8–1,2 м', kom: '0,3×0,4', partiya: '20', opt: '2 000 ₽', rozn: '2 500 ₽' },
+                { size: '1,5–1,8 м', kom: '0,4×0,5', partiya: '10', opt: '2 500 ₽', rozn: '3 000 ₽' }
+            ]
+        },
+        'mozh_kazatsky_variegata': {
+            title: 'Можжевельник казацкий Вариегата',
+            photos: ['images/mozh_kazatsky_variegata/mozh_kazatsky_variegata_1.jpg','images/mozh_kazatsky_variegata/mozh_kazatsky_variegata_2.jpg','images/mozh_kazatsky_variegata/mozh_kazatsky_variegata_3.jpg','images/mozh_kazatsky_variegata/mozh_kazatsky_variegata_4.jpg','images/mozh_kazatsky_variegata/mozh_kazatsky_variegata_5.jpg'],
+            prices: [{ size: '1,3–1,5 м', kom: '0,4×0,5', partiya: '10', opt: '2 500 ₽', rozn: '3 000 ₽' }]
+        },
+        'mozh_blue_chip': {
+            title: 'Можжевельник горизонтальный «Блю Чип»',
+            photos: ['images/mozh_blue_chip/mozh_blue_chip_1.jpg','images/mozh_blue_chip/mozh_blue_chip_2.jpg','images/mozh_blue_chip/mozh_blue_chip_3.jpg','images/mozh_blue_chip/mozh_blue_chip_4.jpg','images/mozh_blue_chip/mozh_blue_chip_5.jpg'],
+            prices: [
+                { size: '0,6–0,8 м', kom: '0,3×0,4', partiya: '20', opt: '2 000 ₽', rozn: '2 200 ₽' },
+                { size: '0,8–1,2 м', kom: '0,3×0,4', partiya: '10', opt: '2 200 ₽', rozn: '2 500 ₽' }
+            ]
+        },
+        'mozh_schlyager': {
+            title: 'Можжевельник стелющийся «Шлягер»',
+            photos: ['images/mozh_schlyager/mozh_schlyager_1.jpg','images/mozh_schlyager/mozh_schlyager_2.jpg','images/mozh_schlyager/mozh_schlyager_3.jpg','images/mozh_schlyager/mozh_schlyager_4.jpg','images/mozh_schlyager/mozh_schlyager_5.jpg'],
+            prices: [{ size: '0,8–1,2 м', kom: '0,3×0,4', partiya: '10', opt: '2 000 ₽', rozn: '2 500 ₽' }]
+        },
+        'mozh_pfitzeriana': {
+            title: 'Можжевельник средний Пфитцериана',
+            photos: ['images/mozh_pfitzeriana/mozh_pfitzeriana_1.jpg','images/mozh_pfitzeriana/mozh_pfitzeriana_2.jpg','images/mozh_pfitzeriana/mozh_pfitzeriana_3.jpg','images/mozh_pfitzeriana/mozh_pfitzeriana_4.jpg','images/mozh_pfitzeriana/mozh_pfitzeriana_5.jpg'],
+            prices: [{ size: '0,7–1,0 м', kom: '0,3×0,4', partiya: '20', opt: '2 000 ₽', rozn: '2 500 ₽' }]
+        },
+        'mozh_sibirsky': {
+            title: 'Можжевельник сибирский чашевидный',
+            photos: ['images/mozh_sibirsky/mozh_sibirsky_1.jpg','images/mozh_sibirsky/mozh_sibirsky_2.jpg','images/mozh_sibirsky/mozh_sibirsky_3.jpg','images/mozh_sibirsky/mozh_sibirsky_4.jpg','images/mozh_sibirsky/mozh_sibirsky_5.jpg'],
+            prices: [{ size: '1,3–1,5 м', kom: '0,4×0,5', partiya: '10', opt: '2 500 ₽', rozn: '3 000 ₽' }]
+        },
+        'mozh_blue_alps': {
+            title: 'Можжевельник китайский «Блю Альпс»',
+            photos: ['images/mozh_blue_alps/mozh_blue_alps_1.jpg','images/mozh_blue_alps/mozh_blue_alps_2.jpg','images/mozh_blue_alps/mozh_blue_alps_3.jpg','images/mozh_blue_alps/mozh_blue_alps_4.jpg','images/mozh_blue_alps/mozh_blue_alps_5.jpg'],
+            prices: [{ size: '1,3–1,5 м', kom: '0,3×0,4', partiya: '20', opt: '2 500 ₽', rozn: '3 000 ₽' }]
+        },
+        'barbaris_red_rocket': {
+            title: 'Барбарис тунберга «Ред Рокет»',
+            photos: ['images/barbaris_red_rocket/barbaris_red_rocket_1.jpg','images/barbaris_red_rocket/barbaris_red_rocket_2.jpg','images/barbaris_red_rocket/barbaris_red_rocket_3.jpg','images/barbaris_red_rocket/barbaris_red_rocket_4.jpg','images/barbaris_red_rocket/barbaris_red_rocket_5.jpg'],
+            prices: [{ size: '0,7–1,0 м', kom: 'ОКС', partiya: '20', opt: '700 ₽', rozn: '1 000 ₽' }]
+        },
+        'barbaris_red_chief': {
+            title: 'Барбарис тунберга «Ред Чиф»',
+            photos: ['images/barbaris_red_chief/barbaris_red_chief_1.jpg','images/barbaris_red_chief/barbaris_red_chief_2.jpg','images/barbaris_red_chief/barbaris_red_chief_3.jpg','images/barbaris_red_chief/barbaris_red_chief_4.jpg','images/barbaris_red_chief/barbaris_red_chief_5.jpg'],
+            prices: [{ size: '0,7–1,0 м', kom: 'ОКС', partiya: '20', opt: '700 ₽', rozn: '1 000 ₽' }]
+        },
+        'barbaris_purpurny': {
+            title: 'Барбарис тунберга пурпурный',
+            photos: ['images/barbaris_purpurny/barbaris_purpurny_1.jpg','images/barbaris_purpurny/barbaris_purpurny_2.jpg','images/barbaris_purpurny/barbaris_purpurny_3.jpg','images/barbaris_purpurny/barbaris_purpurny_4.jpg','images/barbaris_purpurny/barbaris_purpurny_5.jpg'],
+            prices: [{ size: '0,5–0,7 м', kom: 'ОКС', partiya: '20', opt: '700 ₽', rozn: '1 000 ₽' }]
+        },
+        'biryuchina': {
+            title: 'Бирючина обыкновенная',
+            photos: ['images/biryuchina/biryuchina_1.jpg','images/biryuchina/biryuchina_2.jpg','images/biryuchina/biryuchina_3.jpg','images/biryuchina/biryuchina_4.jpg','images/biryuchina/biryuchina_5.jpg'],
+            prices: [{ size: '0,8–1,2 м', kom: 'ОКС', partiya: '20', opt: '300 ₽', rozn: '400 ₽' }]
+        },
+        'biryuchina_shar': {
+            title: 'Бирючина обыкновенная ф. шаровидная',
+            photos: ['images/biryuchina_shar/biryuchina_shar_1.jpg','images/biryuchina_shar/biryuchina_shar_2.jpg','images/biryuchina_shar/biryuchina_shar_3.jpg','images/biryuchina_shar/biryuchina_shar_4.jpg','images/biryuchina_shar/biryuchina_shar_5.jpg'],
+            prices: [{ size: '0,6–0,8 м', kom: '0,3×0,4', partiya: '20', opt: '1 500 ₽', rozn: '2 000 ₽' }]
+        },
+        'kizilnik': {
+            title: 'Кизильник блестящий',
+            photos: ['images/kizilnik/kizilnik_1.jpg','images/kizilnik/kizilnik_2.jpg','images/kizilnik/kizilnik_3.jpg','images/kizilnik/kizilnik_4.jpg','images/kizilnik/kizilnik_5.jpg'],
+            prices: [{ size: '0,8–1,0 м', kom: 'ОКС', partiya: '20', opt: '300 ₽', rozn: '400 ₽' }]
+        },
+        'spirea_golden': {
+            title: 'Спирея японская «Голден Принцесс»',
+            photos: ['images/spirea_golden/spirea_golden_1.jpg','images/spirea_golden/spirea_golden_2.jpg','images/spirea_golden/spirea_golden_3.jpg','images/spirea_golden/spirea_golden_4.jpg','images/spirea_golden/spirea_golden_5.jpg'],
+            prices: [{ size: '0,3–0,4 м', kom: 'ОКС', partiya: '20', opt: '350 ₽', rozn: '500 ₽' }]
+        },
+        'spirea_little': {
+            title: 'Спирея японская «Литл Принцесс»',
+            photos: ['images/spirea_little/spirea_little_1.jpg','images/spirea_little/spirea_little_2.jpg','images/spirea_little/spirea_little_3.jpg','images/spirea_little/spirea_little_4.jpg','images/spirea_little/spirea_little_5.jpg'],
+            prices: [{ size: '0,3–0,4 м', kom: 'ОКС', partiya: '20', opt: '350 ₽', rozn: '500 ₽' }]
+        }
+    };
+
+    // ===== 5. МОДАЛЬНОЕ ОКНО + ЗУМ =====
+    const overlay = document.getElementById('modalOverlay');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImage = document.getElementById('modalImage');
+    const modalCounter = document.getElementById('modalCounter');
+    const modalPrev = document.getElementById('modalPrev');
+    const modalNext = document.getElementById('modalNext');
+    const modalClose = document.getElementById('modalClose');
+    const priceTableBody = document.querySelector('#priceTable tbody');
+    const zoomInBtn = document.getElementById('zoomIn');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const zoomResetBtn = document.getElementById('zoomReset');
+
+    let currentPhotos = [];
+    let currentPhotoIndex = 0;
+    let zoomLevel = 1;
+    let isDragging = false;
+    let dragStartX = 0, dragStartY = 0;
+    let imgOffsetX = 0, imgOffsetY = 0;
+
+    function loadImage(src) {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve({ src, ok: true });
+            img.onerror = () => resolve({ src, ok: false });
+            img.src = src;
+        });
+    }
+
+    async function openModal(productKey) {
+        const product = products[productKey];
+        if (!product) {
+            alert('Нет данных для этой позиции');
+            return;
+        }
+
+        modalTitle.textContent = product.title;
+
+        const checks = await Promise.all((product.photos || []).map(loadImage));
+        currentPhotos = checks.filter(c => c.ok).map(c => c.src);
+
+        if (currentPhotos.length === 0) {
+            currentPhotos = ['https://via.placeholder.com/600x400/2d5e2a/white?text=Нет+фото'];
+        }
+
+        currentPhotoIndex = 0;
+        resetZoom();
+        showPhoto();
+
+        priceTableBody.innerHTML = '';
+        if (product.prices && product.prices.length > 0) {
+            product.prices.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${row.size}</td>
+                    <td>${row.kom}</td>
+                    <td>${row.partiya}</td>
+                    <td class="price-cell">${row.opt}</td>
+                    <td class="price-cell">${row.rozn}</td>
+                `;
+                priceTableBody.appendChild(tr);
+            });
+        } else {
+            priceTableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#888;">Нет данных</td></tr>';
+        }
+
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function showPhoto() {
+        if (currentPhotos.length === 0) return;
+        resetZoom();
+        modalImage.src = currentPhotos[currentPhotoIndex];
+        modalCounter.textContent = `${currentPhotoIndex + 1} / ${currentPhotos.length}`;
+    }
+
+    function nextPhoto() {
+        if (currentPhotos.length === 0) return;
+        currentPhotoIndex = (currentPhotoIndex + 1) % currentPhotos.length;
+        showPhoto();
+    }
+
+    function prevPhoto() {
+        if (currentPhotos.length === 0) return;
+        currentPhotoIndex = (currentPhotoIndex - 1 + currentPhotos.length) % currentPhotos.length;
+        showPhoto();
+    }
+
+    function closeModal() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        resetZoom();
+    }
+
+    function applyZoom() {
+        modalImage.style.transform = `translate(${imgOffsetX}px, ${imgOffsetY}px) scale(${zoomLevel})`;
+        if (zoomLevel > 1) {
+            modalImage.classList.add('zoomed');
+        } else {
+            modalImage.classList.remove('zoomed');
+        }
+    }
+
+    function resetZoom() {
+        zoomLevel = 1;
+        imgOffsetX = 0;
+        imgOffsetY = 0;
+        applyZoom();
+    }
+
+    function setZoom(newLevel, mouseX, mouseY) {
+        const oldLevel = zoomLevel;
+        zoomLevel = Math.max(1, Math.min(5, newLevel));
+
+        if (mouseX !== undefined && mouseY !== undefined && oldLevel !== zoomLevel) {
+            const rect = modalImage.getBoundingClientRect();
+            const cx = mouseX - rect.left - rect.width / 2;
+            const cy = mouseY - rect.top - rect.height / 2;
+            imgOffsetX -= cx * (zoomLevel / oldLevel - 1);
+            imgOffsetY -= cy * (zoomLevel / oldLevel - 1);
+        }
+
+        if (zoomLevel === 1) {
+            imgOffsetX = 0;
+            imgOffsetY = 0;
+        }
+
+        applyZoom();
+    }
+
+    modalImage.addEventListener('click', function(e) {
+        if (isDragging) return;
+        if (zoomLevel === 1) {
+            setZoom(2, e.clientX, e.clientY);
+        } else {
+            resetZoom();
+        }
+    });
+
+    modalImage.addEventListener('dblclick', function(e) {
+        e.preventDefault();
+        resetZoom();
+    });
+
+    const modalSlider = document.getElementById('modalSlider');
+    modalSlider.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        const step = e.deltaY < 0 ? 0.2 : -0.2;
+        setZoom(zoomLevel + step, e.clientX, e.clientY);
+    }, { passive: false });
+
+    zoomInBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setZoom(zoomLevel + 0.3);
+    });
+    zoomOutBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setZoom(zoomLevel - 0.3);
+    });
+    zoomResetBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        resetZoom();
+    });
+
+    modalImage.addEventListener('mousedown', function(e) {
+        if (zoomLevel <= 1) return;
+        isDragging = true;
+        dragStartX = e.clientX - imgOffsetX;
+        dragStartY = e.clientY - imgOffsetY;
+        modalImage.classList.add('grabbing');
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        imgOffsetX = e.clientX - dragStartX;
+        imgOffsetY = e.clientY - dragStartY;
+        applyZoom();
+    });
+
+    document.addEventListener('mouseup', function() {
+        if (isDragging) {
+            isDragging = false;
+            modalImage.classList.remove('grabbing');
+            setTimeout(() => { isDragging = false; }, 50);
+        }
+    });
+
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            const key = this.dataset.gallery;
+            if (key) openModal(key);
+        });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modalPrev.addEventListener('click', (e) => { e.stopPropagation(); prevPhoto(); });
+    modalNext.addEventListener('click', (e) => { e.stopPropagation(); nextPhoto(); });
+    overlay.addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (!overlay.classList.contains('active')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') prevPhoto();
+        if (e.key === 'ArrowRight') nextPhoto();
+    });
+</script>
+</body>
+</html>
